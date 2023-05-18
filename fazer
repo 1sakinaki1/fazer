@@ -1398,9 +1398,12 @@ end)
                             Tab6:Toggle("Anti Stomp",false,function(state)
                                 if state then
                                     getgenv().AntiStomp = game:GetService("RunService").Heartbeat:Connect(function()
-                                        if game.Players.LocalPlayer.Character.Health.Value == "20" then
+game:GetService('Players').LocalPlayer.Character.Humanoid:GetPropertyChangedSignal('Health'):Connect(function()
+   if game:GetService('Players').LocalPlayer.Character.Humanoid.Health < 20 then
+   repeat wait() until tonumber(game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid").Health) < 20
                                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-20.6895447, -378.734528, -1302.26074, -0.972757995, -0.172171488, -0.155237958, -2.70296763e-08, 0.669640481, -0.742685437, 0.231822878, -0.722453177, -0.651398122)
-                                            end
+   end
+end)
                                         end)
                                 else
                                     getgenv().AntiStomp:Disconnect()
