@@ -1230,52 +1230,7 @@ end)
         player.Character.Fazer:remove()
     end)
 
-    PlayerList = {}
 
-    local Players = game:GetService("Players")
-
-    local TextBox = Tab4:Textbox("Search Player  (Still in progress)", "", true, function(callback)
-        local searchTerm = callback:lower()
-        plr = nil
-    
-        for playerName in pairs(playerlist) do
-            if playerName:lower() == searchTerm then
-                plr = playerName
-                print("Selected player:", playerName)
-                break
-            end
-            end
-    end)
-    
-   
-     function updatePlayerList(player)
-        if player ~= game.Players.LocalPlayer then
-            PlayerList[player.Name] = true
-            TextBox:SetOptions(PlayerList)
-        end
-    end
-    
-    
-    
-    
-    
-    for _,v in pairs(Players:GetChildren()) do
-       table.insert(PlayerList, v.Name)
-    end
-    
-    
-    Players.PlayerAdded:Connect(function(plr)
-        table.insert(PlayerList, plr.Name)
-    end)
-    
-    Players.PlayerRemoving:Connect(function(plr)
-        for i, v in pairs(PlayerList) do
-            if v == plr.Name then
-                table.remove(PlayerList, i)
-                break
-            end
-        end
-    end)
      
     local Dropdown = Tab4:Dropdown("Players", playerlist, function(callback)
         plr = callback
