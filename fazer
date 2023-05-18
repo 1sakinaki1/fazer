@@ -251,6 +251,8 @@ Tab1:Button("Camera Lock (Q)",function()
         )
 end)
 
+
+
 Tab1:Textbox("Lock KeyBind","",true,function(bool)
     getgenv().AimlockKey = bool
     end)
@@ -266,7 +268,6 @@ end)
 
 Tab1:Button("Lock Key(Q)",function()
 end)
-
 
 
 
@@ -608,7 +609,7 @@ end)
         function anunciar_atentado_terrorista(fecha_del_atentado)
             AUDIOS_LOUD_DE_TRAP:SetCore("SendNotification",{
                 Title="$ Lynxx#2567",
-                Text= "notification",
+                Text= fecha_del_atentado,
                 Icon="rbxthumb://type=Asset&id=1332213374&w=150&h=150"
                })
         end
@@ -625,10 +626,10 @@ end)
         -- // conexión
         esvastica.KeyDown:Connect(function(el_impostor)
             if el_impostor:lower() == TeclasWS.tecla1:lower() then
-                velocidad_de_cum = velocidad_de_cum + 1
+                velocidad_de_cum = velocidad_de_cum + 10
                 anunciar_atentado_terrorista(" (speed =   "..tostring(velocidad_de_cum)..")")
             elseif el_impostor:lower() == TeclasWS.tecla2:lower() then
-                velocidad_de_cum = velocidad_de_cum - 1
+                velocidad_de_cum = velocidad_de_cum - 10
                 anunciar_atentado_terrorista(" (speed =  "..tostring(velocidad_de_cum)..")")
             elseif el_impostor:lower() == TeclasWS.tecla3:lower() then
                 if es_pedofilo then
